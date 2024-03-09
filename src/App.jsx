@@ -2,6 +2,7 @@ import { checkWinner, checkEndGame } from "./assets/logic/board"
 import { WinnerModal } from "./assets/components/WinnerModal"
 import { TURNS } from "./assets/constants/constants"
 import { Square } from "./assets/components/Square"
+import confetti from 'canvas-confetti'
 import { useState } from "react"
 
 
@@ -43,7 +44,7 @@ function App() {
     //Se revisa ganador
     const newWinner = checkWinner(newBoard)
     if(newWinner) {
-      // confetti()
+      confetti()
       setWinner(newWinner)
     }else if (checkEndGame(newBoard)) {
       setWinner(false)
